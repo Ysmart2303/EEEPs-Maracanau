@@ -27,18 +27,33 @@ main {
     flex: 1;
 }
 
-#bemVindo {
+.caixa {
     /* text-align: center; */
     text-align: justify;
     margin-top: 20px;
     font-size: 24px;
     color: #333;
+    width: 40%;
+    margin: 20px auto;
+
+    border: 5px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 64px;
+}
+
 
 button {
     display: block;
-    width: 420px;
-    margin: 25px auto;
+    width: min(420px, 100%);
+    margin: 0 auto;
     padding: 15px 25px;
     font-size: 18px;
     font-weight: 600;
