@@ -1,5 +1,5 @@
 body {
-    user-select: none;
+    /* user-select: ;/ */
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -39,6 +39,20 @@ main {
     border: 5px solid #000000;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.caixaMenor{
+    text-align: justify;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    width: 40%;
+    margin: 20px auto;
+
+    border: 3px solid #000000;
+    border-radius: 10px;
+    padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
