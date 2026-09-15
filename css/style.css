@@ -138,6 +138,12 @@ main {
     box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
 }
 
+/* hidden */
+
+.hidden {
+    display: none !important;
+}
+
 /* footer */
 footer {
     text-align: center;
