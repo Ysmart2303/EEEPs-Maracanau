@@ -190,3 +190,51 @@ footer p {
     font-size: 14px;
     margin: 0;
 }
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px 12px;
+    }
+
+    header h1 {
+        font-size: clamp(1.35rem, 6vw, 1.8rem);
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    .caixa,
+    .caixaCursos {
+        width: 100%;
+        margin: 16px auto;
+        padding: 16px;
+        border-width: 3px;
+        font-size: 18px;
+    }
+
+    .caixa {
+        gap: 16px;
+    }
+
+    .caixaCursos {
+        gap: 12px;
+    }
+
+    .caixaMenor {
+        min-height: 48px;
+        padding: 12px;
+        border-width: 2px;
+        font-size: 22px;
+    }
+
+    .caixaMMenor {
+        padding: 12px;
+        border-width: 2px;
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 20px 12px;
+    }
+}
