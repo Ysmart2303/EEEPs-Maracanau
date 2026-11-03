@@ -12,3 +12,7 @@ function mostrarTela(telaId) {
     const titulo = document.getElementById("escolhaHH");
     const subtitulo = document.getElementById("escolhaBB");
 }
+
+function mudarDePagina(pagina) {
+  window.location.href = pagina;
+}
