@@ -1,33 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>EEEP Governador Luiz Gonzaga</title>
+    <link rel="stylesheet" href="/css/style.css">
     <style>
-
-         body {
-            /* width: 90%; */
-            height: 90vh;
+        .em-processo {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-         }
-
-         #teste {
-            font-size: 3em;
-            font-family: Arial, Helvetica, sans-serif;
-         }
-
+            justify-content: center;
+            gap: 20px;
+            padding: 60px 20px;
+            min-height: 50vh;
+        }
+        .badge {
+            background: var(--warning);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+        .em-processo h2 {
+            margin: 0;
+            font-size: 1.75rem;
+        }
+        .em-processo p {
+            color: var(--muted);
+            margin: 0;
+            text-align: center;
+        }
+        .em-processo a {
+            margin-top: 8px;
+            color: var(--brand-700);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: 2px solid var(--brand-700);
+            border-radius: var(--radius-sm);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .em-processo a:hover {
+            background: var(--brand-700);
+            color: #fff;
+        }
     </style>
-
 </head>
 <body>
-    
-    <div id="teste">
-        Em processo ⚠️
-    </div>
+
+    <header>
+        <h1>EEEP Governador Luiz Gonzaga</h1>
+    </header>
+
+    <main>
+        <div class="em-processo">
+            <span class="badge">Em processo</span>
+            <h2>Conteúdo em breve</h2>
+            <p>Estamos preparando as informações desta escola.</p>
+            <a href="/index.html">← Voltar para o início</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 EEEP's Maracanaú. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
