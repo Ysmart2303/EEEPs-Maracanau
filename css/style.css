@@ -13,7 +13,7 @@
   /* Cores institucionais */
   --primary: #0A2540;
   --secondary: #0F4C7A;
-  --secondary-soft: #EAF4FF;
+  --secondary-soft: #9bcbff;
 
   /* Marca institucional (por cidade) */
   --brand-900: var(--primary);
@@ -127,11 +127,12 @@ main > h2::after {
 }
 
 /* ========================================
-   Cards (.caixa)
+   Cards (.caixa) — superfície refinada
    ======================================== */
 .caixa {
-  background: var(--secondary-soft);
+  background: #FFFFFF;
   border: 1px solid var(--border);
+  border-top: 3px solid var(--brand-700);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   padding: 24px;
@@ -147,7 +148,8 @@ main > h2::after {
 }
 
 #bemVindo {
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--secondary-soft) 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #EAF3FF 100%);
+  border-top: 1px solid var(--border);
   border-left: 5px solid var(--brand-700);
   font-size: 1.1rem;
 }
@@ -158,22 +160,17 @@ main > h2::after {
   text-align: left;
   margin: 0 0 4px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--brand-100);
+  border-bottom: 1px solid var(--border);
 }
-
-.caixa ul {
-  margin: 0;
-  padding-left: 22px;
-  text-align: left;
-}
-
-.caixa li { margin: 8px 0; }
 
 /* ========================================
-   Grid de cursos (.caixaCursos)
+   Grid de cursos — zona com tint suave
    ======================================== */
 .caixaCursos {
-  background: var(--secondary-soft);
+  background:
+    radial-gradient(circle at 0% 0%,   rgba(27, 110, 181, 0.10), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(27, 110, 181, 0.10), transparent 45%),
+    #F8FBFF;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -187,32 +184,62 @@ main > h2::after {
 }
 
 /* ========================================
-   Botões de curso (.caixaMenor)
+   Botões de curso — cor por curso
    ======================================== */
 .caixaMenor {
+  position: relative;            /* âncora para a bolinha */
   font-family: inherit;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--brand-900);
   background: #FFFFFF;
   border: 2px solid var(--brand-700);
   border-radius: var(--radius-sm);
-  padding: 18px 16px;
+  padding: 16px 0A2540px;
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-              background 0.2s ease, color 0.2s ease;
+  justify-content: center;       /* texto centralizado de verdade */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  max-width: 420px;
+  min-height: 72px;
+  padding: 18px 40px;
+  line-height: 1.3;
+
 }
+
+/* Bolinha "flutuante" — não ocupa espaço no fluxo */
+.caixaMenor::before {
+  content: "";
+  position: absolute;
+  left: 16px;                    /* distância da borda esquerda */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--brand-500);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#ds::before  { background: var(--brand-500);  } /* DS   → azul    */
+#qm::before  { background: var(--growth-500); } /* QM   → verde   */
+#log::before { background: var(--sun-500);    } /* LOG  → âmbar   */
+#txt::before { background: var(--coral-500);  } /* TXT  → coral   */
 
 .caixaMenor:hover {
   background: var(--brand-700);
-  color: #ffffff;
+  color: #FFFFFF;
+  border-color: var(--brand-900);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+.caixaMenor:hover::before {
+  background: #FFFFFF;
+  transform: translateY(-50%) scale(1.25);
 }
 
 .caixaMenor:active {
@@ -229,15 +256,22 @@ main > h2::after {
    Cards de ano (.caixaMMenor)
    ======================================== */
 .caixaMMenor {
-  background: #FFFFFF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--secondary);
+  border-left: 4px solid var(--brand-700);
   border-radius: var(--radius-sm);
   padding: 18px 20px;
   width: 100%;
   margin: 0;
   color: var(--text);
   font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caixaMMenor:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .caixaMMenor h2 {
@@ -251,8 +285,67 @@ main > h2::after {
 
 .caixaMMenor p {
   margin: 6px 0;
-  color: var(--text);
+  color: var(--muted);
   text-align: left;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Professores — grade de cards com avatar
+   ======================================== */
+.gridProfessores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.professorCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.professorCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-500);
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-900));
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.professorInfo strong {
+  display: block;
+  color: var(--brand-900);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.professorInfo span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
 }
 
 /* ========================================
@@ -324,6 +417,51 @@ footer p {
 }
 
 /* ========================================
+   Cores por curso — borda do .caixa
+   acompanha a cor do curso escolhido
+   ======================================== */
+#tDS  { --curso-cor: var(--brand-500);  --curso-tint: #EAF3FF; } /* azul   */
+#tQM  { --curso-cor: var(--growth-500); --curso-tint: #E8F6EF; } /* verde  */
+#tLOG { --curso-cor: var(--sun-500);    --curso-tint: #FFF7E0; } /* âmbar  */
+#tTXT { --curso-cor: var(--coral-500);  --curso-tint: #FCEFE9; } /* coral  */
+
+#ds:hover,  #ds:focus-visible  { background: var(--brand-500);  border-color: var(--brand-500); }
+#qm:hover,  #qm:focus-visible  { background: var(--growth-500); border-color: var(--growth-500); }
+#log:hover, #log:focus-visible { background: #B88A00;            border-color: #B88A00; } /* âmbar escurecido p/ contraste */
+#txt:hover, #txt:focus-visible { background: var(--coral-500);  border-color: var(--coral-500); }
+
+#tDS > .caixa,
+#tQM > .caixa,
+#tLOG > .caixa,
+#tTXT > .caixa {
+  border-top: 3px solid var(--curso-cor);
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--curso-tint) 100%);
+}
+
+/* Sublinhado do título principal herda a cor */
+#tDS > .caixa > h2,
+#tQM > .caixa > h2,
+#tLOG > .caixa > h2,
+#tTXT > .caixa > h2 {
+  border-bottom-color: var(--curso-cor);
+}
+
+/* Faixa lateral dos cards de ano também herda */
+#tDS .caixaMMenor,
+#tQM .caixaMMenor,
+#tLOG .caixaMMenor,
+#tTXT .caixaMMenor {
+  border-left-color: var(--curso-cor);
+}
+
+/* Centraliza verticalmente só na home (página com #buttons) */
+main:has(#buttons) {
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+}
+
+/* ========================================
    Responsivo
    ======================================== */
 @media (max-width: 600px) {
@@ -360,4 +498,10 @@ footer p {
   #buttons { margin-top: 40px; }
 
   footer { padding: 20px 12px; }
+
+  .gridProfessores { grid-template-columns: 1fr; }
+  .avatar { width: 42px; height: 42px; font-size: 0.9rem; }
+
+  .caixaMenor { padding: 16px 32px; }
+  .caixaMenor::before { left: 12px; width: 8px; height: 8px; }
 }
