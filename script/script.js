@@ -16,3 +16,24 @@ function mostrarTela(telaId) {
 function mudarDePagina(pagina) {
   window.location.href = pagina;
 }
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    const savedTheme = localStorage.getItem("theme");
+    const isDark = savedTheme === "dark";
+
+    document.body.dataset.theme = isDark ? "dark" : "light";
+    themeToggle.textContent = isDark ? "☾" : "☀";
+    themeToggle.setAttribute("aria-label", isDark ? "Ativar modo claro" : "Ativar modo escuro");
+    themeToggle.title = isDark ? "Ativar modo claro" : "Ativar modo escuro";
+
+    themeToggle.addEventListener("click", () => {
+        const enableDark = document.body.dataset.theme !== "dark";
+        document.body.dataset.theme = enableDark ? "dark" : "light";
+        localStorage.setItem("theme", enableDark ? "dark" : "light");
+        themeToggle.textContent = enableDark ? "☾" : "☀";
+        themeToggle.setAttribute("aria-label", enableDark ? "Ativar modo claro" : "Ativar modo escuro");
+        themeToggle.title = enableDark ? "Ativar modo claro" : "Ativar modo escuro";
+    });
+}

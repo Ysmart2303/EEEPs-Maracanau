@@ -34,25 +34,15 @@
             margin: 0;
             text-align: center;
         }
-        .em-processo a {
+        .em-processo .btnVoltar {
             margin-top: 8px;
-            color: var(--brand-700);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 12px 24px;
-            border: 2px solid var(--brand-700);
-            border-radius: var(--radius-sm);
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-        .em-processo a:hover {
-            background: var(--brand-700);
-            color: #fff;
         }
     </style>
 </head>
 <body>
 
     <header>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">☀</button>
         <h1>EEEP Governador Luiz Gonzaga</h1>
     </header>
 
@@ -61,7 +51,7 @@
             <span class="badge">Em processo</span>
             <h2>Conteúdo em breve</h2>
             <p>Estamos preparando as informações desta escola.</p>
-            <a href="/index.html">← Voltar para o início</a>
+            <a class="btnVoltar" href="../index.html">← Voltar para o início</a>
         </div>
     </main>
 
@@ -69,5 +59,6 @@
         <p>© 2026 EEEP's Maracanaú. All rights reserved.</p>
     </footer>
 
+    <script src="/script/script.js"></script>
 </body>
 </html>

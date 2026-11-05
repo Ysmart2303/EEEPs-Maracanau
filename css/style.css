@@ -46,6 +46,31 @@
   --radius-lg: 16px;
 }
 
+body[data-theme="dark"] {
+  --bg: #101820;
+  --surface: #182633;
+  --border: #354857;
+  --text: #EDF4F8;
+  --muted: #B2C2CE;
+  --brand-900: #A8D4F5;
+  --brand-700: #337BA5;
+  --brand-500: #4A9BD8;
+  --brand-100: #D1E8F8;
+  --growth-700: #65C99A;
+  --growth-500: #52B987;
+  --success: #65C99A;
+  --warning: #F2B84B;
+  --danger: #F07878;
+  --info: #68BCEB;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.36);
+  --curso-ds-tint: #1D3140;
+  --curso-qm-tint: #1D3B31;
+  --curso-log-tint: #3B3420;
+  --curso-txt-tint: #3B2925;
+}
+
 /* ========================================
    Base
    ======================================== */
@@ -71,11 +96,66 @@ h1, h2, h3 {
    Header
    ======================================== */
 header {
-  background: #FFFFFF;
+  position: relative;
+  background: var(--surface);
   padding: 24px 20px 20px;
   text-align: center;
   border-bottom: 4px solid var(--brand-700);
   box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+  transform: rotate(15deg);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--sun-500);
+  outline-offset: 3px;
+}
+
+.btnVoltar.header-back-button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.header-back-button svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 #logo {
@@ -130,7 +210,7 @@ main > h2::after {
    Cards (.caixa) — superfície refinada
    ======================================== */
 .caixa {
-  background: #FFFFFF;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-top: 3px solid var(--brand-700);
   border-radius: var(--radius-md);
@@ -148,7 +228,7 @@ main > h2::after {
 }
 
 #bemVindo {
-  background: linear-gradient(135deg, #FFFFFF 0%, #EAF3FF 100%);
+  background: linear-gradient(135deg, var(--surface) 0%, #EAF3FF 100%);
   border-top: 1px solid var(--border);
   border-left: 5px solid var(--brand-700);
   font-size: 1.1rem;
@@ -192,7 +272,7 @@ main > h2::after {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--brand-900);
-  background: #FFFFFF;
+  background: var(--surface);
   border: 2px solid var(--brand-700);
   border-radius: var(--radius-sm);
   padding: 16px 0A2540px;
@@ -256,7 +336,7 @@ main > h2::after {
    Cards de ano (.caixaMMenor)
    ======================================== */
 .caixaMMenor {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
+  background: linear-gradient(180deg, var(--surface) 0%, #F5F9FF 100%);
   border: 1px solid var(--border);
   border-left: 4px solid var(--brand-700);
   border-radius: var(--radius-sm);
@@ -305,7 +385,7 @@ main > h2::after {
   align-items: center;
   gap: 14px;
   padding: 14px;
-  background: #FFFFFF;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -395,6 +475,27 @@ main > h2::after {
   outline-offset: 3px;
 }
 
+.btnVoltar {
+  display: inline-block;
+  padding: 12px 24px;
+  color: var(--brand-700);
+  border: 2px solid var(--brand-700);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btnVoltar:hover {
+  background: var(--brand-700);
+  color: #fff;
+}
+
+.btnVoltar:focus-visible {
+  outline: 3px solid var(--sun-500);
+  outline-offset: 3px;
+}
+
 /* ========================================
    Utilitários
    ======================================== */
@@ -425,6 +526,48 @@ footer p {
 #tLOG { --curso-cor: var(--sun-500);    --curso-tint: #FFF7E0; } /* âmbar  */
 #tTXT { --curso-cor: var(--coral-500);  --curso-tint: #FCEFE9; } /* coral  */
 
+body[data-theme="dark"] #bemVindo {
+  background: linear-gradient(135deg, var(--surface) 0%, #203447 100%);
+}
+
+body[data-theme="dark"] .caixaCursos {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(74, 155, 216, 0.12), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(74, 155, 216, 0.12), transparent 45%),
+    var(--bg);
+}
+
+body[data-theme="dark"] .caixaMMenor {
+  background: linear-gradient(180deg, var(--surface) 0%, #1C2B38 100%);
+}
+
+body[data-theme="dark"] #tDS,
+body[data-theme="dark"] #tQM,
+body[data-theme="dark"] #tLOG,
+body[data-theme="dark"] #tTXT {
+  --curso-tint: var(--curso-ds-tint);
+}
+
+body[data-theme="dark"] #tQM { --curso-tint: var(--curso-qm-tint); }
+body[data-theme="dark"] #tLOG { --curso-tint: var(--curso-log-tint); }
+body[data-theme="dark"] #tTXT { --curso-tint: var(--curso-txt-tint); }
+
+body[data-theme="dark"] footer {
+  background: #0B1520;
+}
+
+body[data-theme="dark"] footer p {
+  color: #C4DCF0;
+}
+
+body[data-theme="dark"] .btnBase {
+  background: linear-gradient(135deg, #24658D 0%, #153C58 100%);
+}
+
+body[data-theme="dark"] .btnBase:hover {
+  background: linear-gradient(135deg, #337BA5 0%, #24658D 100%);
+}
+
 #ds:hover,  #ds:focus-visible  { background: var(--brand-500);  border-color: var(--brand-500); }
 #qm:hover,  #qm:focus-visible  { background: var(--growth-500); border-color: var(--growth-500); }
 #log:hover, #log:focus-visible { background: #B88A00;            border-color: #B88A00; } /* âmbar escurecido p/ contraste */
@@ -435,7 +578,7 @@ footer p {
 #tLOG > .caixa,
 #tTXT > .caixa {
   border-top: 3px solid var(--curso-cor);
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--curso-tint) 100%);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--curso-tint) 100%);
 }
 
 /* Sublinhado do título principal herda a cor */
@@ -467,6 +610,7 @@ main:has(#buttons) {
 @media (max-width: 600px) {
   header { padding: 20px 12px 16px; }
   header h1 { font-size: clamp(1.25rem, 5.5vw, 1.6rem); }
+  .theme-toggle { top: 8px; left: 8px; width: 38px; height: 38px; }
 
   main { padding: 16px 12px; }
   main > h2 { font-size: 1.25rem; margin-top: 32px; }
