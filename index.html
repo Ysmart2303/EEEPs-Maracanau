@@ -1,42 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EEEP's Maracanaú</title>
+    <meta name="description" content="Conheça as Escolas Estaduais de Educação Profissional de Maracanaú e explore os cursos técnicos disponíveis.">
+    <title>Conecta EP.M | Educação profissional em Maracanaú</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
-<body data-theme="dark">
-
-    <header>
+<body class="pagina-inicial" data-theme="dark">
+    <header class="home-header">
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo claro" title="Ativar modo claro">☾</button>
-        <!-- <img id="logo" src="/img/logo.png" alt="EEEP's Maracanaú Logo"> -->
-        <h1>Conecta EP.M</h1>
+        <a class="home-brand" href="index.html" aria-label="Conecta EP.M, página inicial">
+            <span class="home-brand-name">Conecta <strong>EP.M</strong></span>
+            <span class="home-brand-caption">Educação profissional em Maracanaú</span>
+        </a>
+        <span class="home-header-label">Rede de escolas estaduais</span>
     </header>
 
-    <main>
+    <main class="home-main">
+        <section class="home-hero" aria-labelledby="home-title">
+            <div class="home-hero-copy">
+                <p class="home-eyebrow"><span></span> ENSINO PÚBLICO • FORMAÇÃO PROFISSIONAL</p>
+                <h1 id="home-title">Conhecimento que abre caminhos.</h1>
+                <p class="home-lead">Um ponto de encontro para conhecer as Escolas Estaduais de Educação Profissional de Maracanaú e descobrir novas possibilidades de formação.</p>
+                <a class="home-hero-link" href="#escolas">Conheça as escolas <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="home-hero-mark">
+                <div class="home-mark-frame">
+                    <img src="img/logo.png" alt="Logo EP.M">
+                </div>
+                <p>Educação que aproxima<br><strong>escola, técnica e futuro.</strong></p>
+                <span class="home-mark-index">MARACANAÚ / CE</span>
+            </div>
+        </section>
 
-        <div id="bemVindo" class="caixa">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Deserunt ducimus quidem, natus aspernatur inventore illo ea nemo odio. 
-            Nulla in dolorem doloremque cum eveniet nisi natus quibusdam obcaecati? Nesciunt, blanditiis!
-        </div>
+        <section id="escolas" class="home-schools" aria-labelledby="schools-title">
+            <div class="home-section-heading">
+                <div>
+                    <p class="home-eyebrow">NOSSAS UNIDADES</p>
+                    <h2 id="schools-title">Encontre sua escola</h2>
+                </div>
+                <p>Explore as informações de cada unidade e acompanhe a construção deste espaço.</p>
+            </div>
 
-        <div id="buttons">
+            <div class="home-school-grid">
+                <article class="home-school-card home-school-ready">
+                    <div class="home-card-topline"><span>UNIDADE 01</span><span class="home-status"><i></i> Conteúdo disponível</span></div>
+                    <div class="home-card-body">
+                        <p class="home-school-type">ESCOLA ESTADUAL DE EDUCAÇÃO PROFISSIONAL</p>
+                        <h3>Maria Carmem<br>Vieira Moreira</h3>
+                        <p class="home-school-description">Conheça os cursos técnicos, as áreas de formação e os conteúdos organizados para a comunidade escolar.</p>
+                        <div class="home-course-list" aria-label="Cursos técnicos">
+                            <span>Desenvolvimento de Sistemas</span>
+                            <span>Química</span>
+                            <span>Logística</span>
+                            <span>Têxtil</span>
+                        </div>
+                        <a class="home-school-link" href="pages/MCVM.html">Explorar a escola <span aria-hidden="true">→</span></a>
+                    </div>
+                    <div class="home-card-number" aria-hidden="true">01</div>
+                </article>
 
-            <button id="MCVM" class="btnBase" onclick="mudarDePagina('pages/MCVM.html')">EEEP Maria Carmem Vieira Moreira</button>
-            
-            <button id="GM" class="btnBase" onclick="mudarDePagina('pages/GLG.html')">EEEP Governador Luiz Gonzaga </button>
+                <article class="home-school-card home-school-pending">
+                    <div class="home-card-topline"><span>UNIDADE 02</span><span class="home-status home-status-pending"><i></i> Em preparação</span></div>
+                    <div class="home-card-body">
+                        <p class="home-school-type">ESCOLA ESTADUAL DE EDUCAÇÃO PROFISSIONAL</p>
+                        <h3>Governador Luiz<br>Gonzaga da Fonseca Mota</h3>
+                        <p class="home-school-description">A página desta unidade está sendo preparada. Em breve, novas informações estarão disponíveis.</p>
+                        <a class="home-school-link" href="pages/GLG.html">Acompanhar unidade <span aria-hidden="true">→</span></a>
+                    </div>
+                    <div class="home-card-number" aria-hidden="true">02</div>
+                </article>
+            </div>
+        </section>
 
-        </div>
-
+        <section class="home-note" aria-label="Sobre a educação profissional">
+            <span class="home-note-mark" aria-hidden="true">EP</span>
+            <div>
+                <p class="home-eyebrow">FORMAÇÃO PARA A VIDA</p>
+                <h2>Ensino médio e formação técnica lado a lado.</h2>
+            </div>
+            <p>Uma experiência escolar que conecta aprendizagem, conhecimento técnico e possibilidades para o futuro.</p>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2026 EEEP's Maracanaú. All rights reserved.</p>
+    <footer class="home-footer">
+        <p><strong>Conecta EP.M</strong><span>Educação profissional em Maracanaú</span></p>
+        <small>© 2026 • Um espaço dedicado às escolas e à comunidade escolar.</small>
     </footer>
 
     <script src="script/script.js"></script>
-
 </body>
 </html>
