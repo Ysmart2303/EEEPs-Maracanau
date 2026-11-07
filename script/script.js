@@ -21,7 +21,7 @@ const themeToggle = document.getElementById("themeToggle");
 
 if (themeToggle) {
     const savedTheme = localStorage.getItem("theme");
-    const isDark = savedTheme === "dark";
+    const isDark = savedTheme !== "light";
 
     document.body.dataset.theme = isDark ? "dark" : "light";
     themeToggle.textContent = isDark ? "☾" : "☀";
